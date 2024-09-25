@@ -1,0 +1,186 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #242424;
+  background-size: cover;
+  color: white;
+  height: 100vh;
+  width: 99vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url(../Img/rainy.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+.App {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  column-gap: 5px;
+  background: #000000a2;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 0.2fr;
+  grid-template-areas: 
+    'current forecast forecast'
+    'current forecast forecast'
+    'current forecast forecast'
+    'current forecast forecast';
+  border-radius: 10px;
+  padding: 10px 7px;
+  width: 98%;
+  height: 98%;
+}
+
+
+.hourly-forecast, .daily-forecast, .weather-details, .weather-chart {
+  padding: 6px 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  width: 80%;
+}
+
+.hourly-forecast{
+  grid-area: hour;
+}
+
+.daily-forecast{
+  grid-area: day;
+}
+
+.weather-details{
+  grid-area: detail;
+}
+
+.current{
+  grid-area: current;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: .1fr 1fr 1fr .1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: 
+    ". weather weather ."
+    ". weather weather ."
+    ". teste teste ."
+    ". teste teste .";
+  gap: 5px;
+  width: 95%; 
+  height: 98%;
+  border-radius: 10px;
+  background: url(../Img/rainy.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.current::before{
+  content: "";
+  background: #0d0d0d82;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.current-weather, .detail{
+  z-index: 3;
+} 
+
+.current-weather{
+  grid-area: weather;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.current-temperature{
+  margin-top: -20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-weather .current-temperature span:nth-child(1){
+  font-size: 6rem;
+  margin-bottom: 2px;
+  text-align: center;
+  margin-left: 30px;
+}
+
+.current-weather .current-temperature span:nth-child(3){
+  font-size: 2rem;
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+.detail{
+  grid-area: teste;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-area: 
+    "feel precip"
+    "visi humi";
+  gap: 20px 70px;
+}
+
+.detail p{
+  margin: 15px;
+}
+
+.detail .one{
+  margin: 0;
+  width: 180px;
+  height: 100px;
+  padding: 2px 5px;
+  background: #1b1b1bbb;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.detail .one .titre{
+  font-size: 25px;
+}
+
+.forecast{
+  grid-area: forecast;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr .2fr;
+  grid-template-areas: 
+    'hour hour'
+    'day day'
+    'detail detail'
+    '. .';  
+  gap: 10px;
+  width: 70vw;
+  height: 100%;
+}
+
+.forecast-container, .weather-details {
+  display: flex;
+  overflow-x: scroll;
+  justify-content: space-between;
+}
+
+.forecast-hour, .forecast-day, .detail-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+.search-bar{
+  color: white;
+}
